@@ -19,7 +19,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://35.167.89.196:3306/bookstore"
+            url = "jdbc:mysql://35.160.163.175:3306/bookstore"
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "trixcaliba"
 			password = 'trixcaliba'
@@ -34,7 +34,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://35.167.89.196:3306/bookstore"
+            url = "jdbc:mysql://35.160.163.175:3306/bookstore"
 			driverClassName = "com.mysql.jdbc.Driver"
 			username = "trixcaliba"
 			password = 'trixcaliba'
