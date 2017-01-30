@@ -6,7 +6,7 @@ class SearchBooksController {
 	
     def index() {
         def model = [:]
-		model['page'] = 'our-books'
+		model['page'] = 'our-books'		
         return model
     }
 
