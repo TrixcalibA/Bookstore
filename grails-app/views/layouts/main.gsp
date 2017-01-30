@@ -107,7 +107,6 @@
 	<script type="text/javascript" src="/template/assets/js/app.js"></script>
 	<script type="text/javascript" src="/template/assets/js/plugins.js"></script>
 	<script type="text/javascript" src="/template/assets/js/plugins.form-components.js"></script>
-	<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 	<g:javascript src="application.js" />
 
 	<script>
@@ -160,20 +159,32 @@
 	
 			<!-- Top Right Menu -->
 			<ul class="nav navbar-nav navbar-right">
-				<!-- User Login Dropdown -->
-				<li class="dropdown user">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-male"></i>
-						<span class="username">John Doe</span>
-						<i class="icon-caret-down small"></i>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="/accountSettings"><i class="icon-user"></i> My Profile</a></li>
-						<li class="divider"></li>
-						<li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
-					</ul>
-				</li>
-				<!-- /user login dropdown -->
+				<g:if test="${userId}">
+					<!-- User Login Dropdown -->
+					<li class="dropdown user">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-male"></i>
+							<span class="username">John Doe</span>
+							<i class="icon-caret-down small"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/accountSettings"><i class="icon-user"></i> My Profile</a></li>
+							<li class="divider"></li>
+							<li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
+						</ul>
+					</li>
+					<!-- /user login dropdown -->
+				</g:if>
+				<g:else>
+					<!-- Link to User Login Page -->
+					<li class="user">
+						<a href="/login">
+							<i class="icon-male"></i>
+							<span>Login</span>
+						</a>
+					</li>
+					<!-- /user login -->
+				</g:else>
 			</ul>
 			<!-- /Top Right Menu -->
 		</div>
@@ -193,7 +204,7 @@
 					<li <g:if test="${page == 'sell-books'}">class="current"</g:if>>
 						<a href="/sellBooks/index">
 							<i class="icon-bar-chart"></i>
-							Selling Books
+							Sell Books
 						</a>
 					</li>
 					<li <g:if test="${page == 'about'}">class="current"</g:if>>
