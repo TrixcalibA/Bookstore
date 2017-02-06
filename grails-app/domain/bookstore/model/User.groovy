@@ -18,6 +18,8 @@ class User {
 	
 	Integer yearOfGraduation
 	
+	Boolean active
+	
 	static constraints = {
 		major nullable : true
 		degree nullable : true

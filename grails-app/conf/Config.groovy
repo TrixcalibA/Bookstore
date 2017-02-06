@@ -96,13 +96,16 @@ grails.hibernate.pass.readonly = false
 grails.hibernate.osiv.readonly = false
 grails.app.context = '/'
 
+grails.mail.default.from = "Bookstore Team <trixcaliba@gmail.com>"
+
 environments {
     development {
         grails.logging.jul.usebridge = true
+		grails.serverURL = "http://localhost:8080"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+		grails.serverURL = "http://35.160.163.175"
     }
 }
 
@@ -126,3 +129,18 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+grails {
+	mail {
+		host = "smtp.gmail.com"
+		port = 465
+		username = "trixcaliba@gmail.com"
+		password = "trixcalib@2017"
+		props = ["mail.smtp.auth": "true",
+				"mail.smtp.socketFactory.port": "465",
+				"mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+				"mail.smtp.socketFactory.fallback": "false",
+				"mail.debug": "true"]
+	}
+}
+

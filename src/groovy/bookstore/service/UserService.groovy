@@ -1,5 +1,6 @@
 package bookstore.service
-
+import bookstore.model.User
+ 
 class UserService {
 	private static UserService instance = null
 	
@@ -15,8 +16,12 @@ class UserService {
 		
 	}
 	
+	def getUserById(userId){
+		return User.find("from User as u where u.id=:userId",[userId:userId])
+	}
+	
 	def getUserByUsername(username){
-		
+		return User.find("from User as u where u.username=:username",[username:username])
 	}
 	
 	

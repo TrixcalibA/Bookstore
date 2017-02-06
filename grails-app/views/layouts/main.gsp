@@ -164,7 +164,7 @@
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="icon-male"></i>
-							<span class="username">John Doe</span>
+							<span class="username">${loginName}</span>
 							<i class="icon-caret-down small"></i>
 						</a>
 						<ul class="dropdown-menu">
