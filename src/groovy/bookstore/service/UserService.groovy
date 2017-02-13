@@ -12,10 +12,6 @@ class UserService {
 		return instance
 	}
 	
-	def createUser(accountCode,accountInfo){
-		
-	}
-	
 	def getUserById(userId){
 		return User.find("from User as u where u.id=:userId",[userId:userId])
 	}
