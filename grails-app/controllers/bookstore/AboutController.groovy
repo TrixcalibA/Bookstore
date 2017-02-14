@@ -7,11 +7,14 @@ class AboutController {
 	
     def index() {
 		def userService = UserService.getInstance()
-		def login = userService.getUserById(session['userId'])
+		def userId = session['userId']
         def model = [:]
-		model['userId'] = session['userId']
 		model['page'] = 'about'
-		model['loginName'] = login.firstName+' '+login.lastName
+		if(userId){
+			def login = userService.getUserById(session['userId'])
+			model['userId'] = userId
+			model['loginName'] = login.firstName+' '+login.lastName
+		}
         return model
     }
 
