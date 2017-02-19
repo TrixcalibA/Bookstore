@@ -1,4 +1,5 @@
 language: groovy
 script: ./grailsw refresh-dependencies
-     && ./grailsw prod-war
+     && ./grailsw prod war
 before_install: openssl aes-256-cbc -K $encrypted_5fff3d721dd7_key -iv $encrypted_5fff3d721dd7_iv -in github_deploy_key.enc -out github_deploy_key -d
+after_success: scp -o "StrictHostKeyChecking no" ./target/Bookstore.0-1.war ec2-user@35.160.163.175:~/usr/share/tomcat8/webapps/ROOT.war
