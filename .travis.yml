@@ -4,7 +4,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_65a23ad9ae95_key -iv $encrypted_65a23ad9ae95_iv -in trixcaliba.pem.enc -out trixcaliba.pem -d
 after_success: 
 - chmod 700 ./trixcaliba.pem
-- ssh -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ec2-user@ec2-35-160-163-175.us-west-2.compute.amazonaws.com "service tomcat8 stop"
+- ssh -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ec2-user@ec2-35-160-163-175.us-west-2.compute.amazonaws.com "service tomcat8 stop" || true
 - ssh -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ec2-user@ec2-35-160-163-175.us-west-2.compute.amazonaws.com "rm -rf ~/usr/share/tomcat8/webapps/ROOT"
-- scp -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ./target/Bookstore-0.1.war ec2-user@35.160.163.175:~/usr/share/tomcat8/webapps/ROOT.war
-- ssh -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ec2-user@ec2-35-160-163-175.us-west-2.compute.amazonaws.com "service tomcat8 start"
+- scp -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ./target/Bookstore-0.1.war ec2-user@35.160.163.175:/usr/share/tomcat8/webapps/ROOT.war
+- ssh -i ./trixcaliba.pem -o "StrictHostKeyChecking no" ec2-user@ec2-35-160-163-175.us-west-2.compute.amazonaws.com "service tomcat8 start" || true
