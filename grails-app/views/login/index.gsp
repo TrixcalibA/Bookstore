@@ -136,7 +136,7 @@
 			<!-- Register Formular (hidden by default) -->
 			<form class="form-vertical register-form" action="/login/signup" method="post" style="display: none;">
 				<!-- Title -->
-				<h3 class="form-title">Sign Up for Free</h3>
+				<h3 class="form-title">Use Your Email for Free Sign Up</h3>
 
 				<!-- Input Fields -->
 				<div class="form-group">
