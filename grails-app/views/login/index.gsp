@@ -111,7 +111,7 @@
 					<!--<label for="username">Username:</label>-->
 					<div class="input-icon">
 						<i class="icon-user"></i>
-						<input type="text" name="username" class="form-control" placeholder="Username" autofocus="autofocus" data-rule-required="true" data-msg-required="Please enter your username." />
+						<input type="text" name="username" class="form-control" placeholder="Username" autofocus="autofocus" data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your username." />
 					</div>
 				</div>
 				<div class="form-group">
@@ -142,7 +142,7 @@
 				<div class="form-group">
 					<div class="input-icon">
 						<i class="icon-user"></i>
-						<input type="text" name="username" class="form-control" placeholder="Username" autofocus="autofocus" data-rule-required="true" />
+						<input type="text" name="username" class="form-control" placeholder="Username" autofocus="autofocus" data-rule-required="true" data-rule-email="true"/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -170,9 +170,27 @@
 						<option value="female">Female</option>
 					</select>
 				</div>
+				<div class="form-group">
+					<div class="input-icon">
+						<i class="glyphicon glyphicon-briefcase"></i>
+		                <input class="form-control" type="text" name="major" placeholder="Major">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-icon">
+						<i class="glyphicon glyphicon-briefcase"></i>
+		                <input class="form-control" type="text" name="degree" placeholder="Degree">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-icon">
+						<i class="glyphicon glyphicon-calendar"></i>
+		                <input class="form-control" type="text" name="yearOfGraduation" data-rule-number="true" placeholder="Graduation Year">
+					</div>
+				</div>
 				<div class="form-group spacing-top">
-					<label class="checkbox"><input type="checkbox" class="uniform" name="remember" data-rule-required="true" data-msg-required="Please accept ToS first."> I agree to the <a href="javascript:void(0);">Terms of Service</a></label>
-					<label for="remember" class="has-error help-block" generated="true" style="display:none;"></label>
+					<label class="checkbox"><input type="checkbox" class="uniform" name="tos" data-rule-required="true" data-msg-required="Please accept ToS first."> I agree to the <a href="javascript:void(0);">Terms of Service</a></label>
+					<label for="tos" class="has-error help-block" generated="true" style="display:none;"></label>
 				</div>
 				<!-- /Input Fields -->
 
