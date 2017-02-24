@@ -79,6 +79,9 @@ class LoginController {
 			user.firstName = params.firstName
 			user.lastName = params.lastName
 			user.gender = params.gender
+			user.major = params.major
+			user.degree = params.degree
+			user.yearOfGraduation = Integer.parseInt(params.yearOfGraduation)
 			user.active = false
 			user.save(flush: true, failOnError: true)
 			
