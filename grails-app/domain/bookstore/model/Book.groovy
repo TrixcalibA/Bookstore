@@ -11,7 +11,9 @@ class Book {
 	String course
 	
 	User postedBy
-
+	
+	String status
+	
 	Date postedDate
 	
 	static constraints = {

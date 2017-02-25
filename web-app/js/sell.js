@@ -11,16 +11,7 @@ function HomeViewModel(){
 	
 	self.course = ko.observable(null);
 	
-	self.loadBooks = function(){
-//		$.post('/sellBooks/books',formData,function(data){
-//			if(data['success']){
-//				
-//			}
-//			else{
-//				
-//			}
-//		});
-	}
+	self.sellBookTable = null;
 	
 	self.sellBook = function(){
 		$("#sell-form").validate({
@@ -42,18 +33,43 @@ function HomeViewModel(){
 			major: self.major(),
 			course: self.course()
 		}
+		showSpinner();
 		$.post('/sellBooks/sell',formData,function(data){
 			if(data['success']){
-				//
+				self.title(null);
+				self.isbn(null);
+				self.major(null);
+				self.course(null);
+				notyMessage('You book was posted successfully','success');
+				self.sellBookTable.fnReloadAjax();
 			}
 			else{
-				
+				notyMessage(data['message'],'warning');
 			}
+			hideSpinner();
 		});
+	}
+	
+	self.initializeSellBooks = function(){
+		self.sellBookTable = $("#sellbook_table").dataTable({
+			"bFilter": true,
+			'bInfo' : true,
+			"bProcessing": true,
+	        "bServerSide": true,
+	        "iDisplayLength": 25,
+	        "sAjaxSource": "/sellBooks/books",
+	        "aoColumns" : [{ "mData": "title" },
+	                       { "mData": "isbn" },
+	                       { "mData": "major" },
+	                       { "mData": "course" },
+	                       { "mData": "postedDate" },
+	                       { "mData": "status" }
+	                   ]
+		            });
 	}
 }
 
 $(document).ready(function(){
-	homevm.loadBooks();
+	homevm.initializeSellBooks();
 	ko.applyBindings(homevm,$('.home')[0]);
 });

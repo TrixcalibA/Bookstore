@@ -1,0 +1,81 @@
+package bookstore.service
+import bookstore.model.Book
+ 
+class BookService {
+	private static BookService instance = null
+	
+	def static synchronized getInstance(){
+		if(instance==null){
+			instance = new BookService()
+			return instance
+		}
+		return instance
+	}
+	
+	def searchBooksByOwnerId(ownerId,offset,displayLen,searchStr,titleSort,isbnSort,majorSort,courseSort,postedDateSort,statusSort){
+		def count_select = """SELECT count(*) FROM Book b
+				  		   """
+		
+		def select = """SELECT new map(b.id as id, b.title as title, b.isbn as isbn, b.major as major,
+									b.course as course, b.postedDate as postedDate, b.status as status) FROM Book b
+					 """ 
+		
+		def where = """ WHERE (lower(b.title) like lower(:searchStrLike) OR
+							  lower(b.isbn) like lower(:searchStrLike) OR
+							  lower(b.major) like lower(:searchStrLike) OR
+							  lower(b.course) like lower(:searchStrLike)) AND postedBy.id = :ownerId
+				  	"""
+		
+		def order = '';
+		
+		if(titleSort == 'asc')
+			order = ' order by b.title asc'
+		if(titleSort == 'desc')
+			order = ' order by b.title desc'
+		
+		if(isbnSort == 'asc')
+			order = ' order by b.isbn asc'
+		if(isbnSort == 'desc')
+			order = ' order by b.isbn desc'
+		
+		if(majorSort == 'asc')
+			order = ' order by b.major asc'
+		if(majorSort == 'desc')
+			order = ' order by b.major desc'
+			
+		if(courseSort == 'asc')
+			order = ' order by b.course asc'
+		if(courseSort == 'desc')
+			order = ' order by b.course desc'
+		
+		if(postedDateSort == 'asc')
+			order = ' order by b.postedDate asc'
+		if(postedDateSort == 'desc')
+			order = ' order by b.postedDate desc'
+			
+		if(statusSort == 'asc')
+			order = ' order by b.status asc'
+		if(statusSort == 'desc')
+			order = ' order by b.status desc'
+			
+		def searchStrExact = searchStr.trim();
+		def searchStrLike = searchStrExact.replace('\\', '\\\\').replace('%', /\%/).replace('_', /\_/)
+
+		def parameters = [ownerId: ownerId, searchStrLike: "%${searchStrLike}%"]
+
+		def paginOpt = [max: displayLen, offset: offset]
+		
+		def nrows = Book.executeQuery(count_select+where,parameters)
+		
+		def books = Book.executeQuery(select+where+order,parameters,paginOpt)
+		
+		return [data: books, nrows: nrows[0]]
+	}
+	
+	def getNumberOfBooksByOwnerId(ownerId){
+		def sql = "SELECT count(b.id) FROM Book b WHERE b.postedBy.id = :ownerId"
+		def ret = Book.executeQuery(sql,[ownerId: ownerId])
+		return ret[0]
+	}
+	
+}

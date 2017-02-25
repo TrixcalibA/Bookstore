@@ -2,7 +2,7 @@ class UrlMappings {
 
 	static mappings = {
         "/$controller/$action?/$id?" {}
-		"/"(controller: "Books")
+		"/"(controller: "OurBooks")
         "500"(view:'/error')
 	}
 }

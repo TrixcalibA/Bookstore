@@ -36,6 +36,7 @@
 		<link href="/template/assets/css/ie8.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/css/site.css">
 	<!--=== JavaScript ===-->
 
 	<script type="text/javascript" src="/template/assets/js/libs/jquery-1.10.2.min.js"></script>
@@ -205,12 +206,6 @@
 						<a href="/sellBooks/index">
 							<i class="icon-bar-chart"></i>
 							Sell Books
-						</a>
-					</li>
-					<li <g:if test="${page == 'about'}">class="current"</g:if>>
-						<a href="/about/index">
-							<i class="icon-bar-chart"></i>
-							About
 						</a>
 					</li>
 				</ul>

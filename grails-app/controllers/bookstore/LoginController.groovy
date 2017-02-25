@@ -57,7 +57,7 @@ class LoginController {
 		}
 
 		session["userId"] = user.id
-		redirect(action: 'index', controller: 'books')
+		redirect(action: 'index', controller: 'ourBooks')
 	}
 	
 	def signup(){
