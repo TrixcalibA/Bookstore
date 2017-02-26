@@ -4,12 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<meta name="layout" content="main" />
 	<title>Sell Books</title>
-	<script type="text/javascript" src="/js/sell.js"></script>
+	<script type="text/javascript" src="/js/sellBooks.js"></script>
 </head>
 <body>
 	<g:if test="${isLoggedIn}">
 		<div class="home" style="padding-top: 20px">
-			<!-- Mangaed Table No Padding -->
+			<!-- Managed Table No Padding -->
 			<div class="row">
 				<div class="col-md-12">
 					<div class="widget box">
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- /Mangaed Table No Padding -->
+			<!-- /Managed Table No Padding -->
 			
 			<!-- Sell form -->
 			<div class="row">
