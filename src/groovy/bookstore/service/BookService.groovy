@@ -83,7 +83,7 @@ class BookService {
 				  		   """
 		
 		def select = """SELECT new map(b.id as id, b.title as title, b.isbn as isbn, b.major as major,
-									b.course as course, b.postedDate as postedDate, b.postedBy.firstName as firstName, b.postedBy.lastName as lastName, b.status as status) FROM Book b
+									b.course as course, b.postedDate as postedDate, b.postedBy.id as postedById, b.postedBy.firstName as firstName, b.postedBy.lastName as lastName, b.status as status) FROM Book b
 					 """ 
 		
 		def where = """ WHERE (lower(b.title) like lower(:searchStrLike) OR

@@ -160,7 +160,7 @@
 	
 			<!-- Top Right Menu -->
 			<ul class="nav navbar-nav navbar-right">
-				<g:if test="${userId}">
+				<g:if test="${loginId}">
 					<!-- User Login Dropdown -->
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -169,7 +169,7 @@
 							<i class="icon-caret-down small"></i>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/accountSettings"><i class="icon-user"></i> My Profile</a></li>
+							<li><a href="/profile?userId=${loginId}"><i class="icon-user"></i> My Profile</a></li>
 							<li class="divider"></li>
 							<li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
 						</ul>

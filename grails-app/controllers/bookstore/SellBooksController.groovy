@@ -22,7 +22,7 @@ class SellBooksController {
 		model['page'] = 'sell-books'
 		if(userId){
 			def login = userService.getUserById(session['userId'])
-			model['userId'] = userId
+			model['loginId'] = userId
 			model['loginName'] = login.firstName+' '+login.lastName
 			model['isLoggedIn'] = true
 		}

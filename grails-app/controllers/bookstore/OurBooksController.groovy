@@ -14,7 +14,7 @@ class OurBooksController {
 		model['page'] = 'our-books'
 		if(userId){
 			def login = userService.getUserById(session['userId'])
-			model['userId'] = userId
+			model['loginId'] = userId
 			model['loginName'] = login.firstName+' '+login.lastName
 			model['isLoggedIn'] = true
 		}
@@ -71,6 +71,7 @@ class OurBooksController {
 					   course:book.course,
 					   postedDate:DateUtility.getDate(book.postedDate),
 					   postedBy: book.firstName + ' ' +book.lastName,
+					   postedById: book.postedById,
 					   status:book.status])
 		}
 		

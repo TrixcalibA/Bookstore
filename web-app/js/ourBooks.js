@@ -18,7 +18,12 @@ function HomeViewModel(){
 	                       { "mData": "major" },
 	                       { "mData": "course" },
 	                       { "mData": "postedDate" },
-	                       { "mData": "postedBy" },
+	                       { "mData" : null,
+		                    	 "bSortable": false,
+		                    	 "fnRender": function (oObj) {
+		                           return '<a href="/profile?userId=' + oObj.aData['postedById'] + '">' + htmlEncode(oObj.aData['postedBy']) + '</a>';
+		                         }
+		                   },
 	                       { "mData": "status" }
 	                   ]
 		            });

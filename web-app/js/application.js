@@ -1,3 +1,7 @@
+function htmlEncode(value){
+	return $('<div/>').text(value).html();
+}
+
 //allow only numbers to be entered in a textbox
 function isNumberKey(evt) {
 	var charCode = (evt.which) ? evt.which : event.keyCode

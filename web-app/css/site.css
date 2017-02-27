@@ -12,7 +12,7 @@
 }
 
 .loading {
-    background: url(../images/ajax-loading-input.gif) 50% 50% no-repeat transparent;
+    background: url(../images/ajax-loading.gif) 50% 50% no-repeat transparent;
     height: 50px;
     width: 100%;
     padding: 0.5em;
