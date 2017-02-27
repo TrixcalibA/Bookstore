@@ -46,7 +46,7 @@
 						<label class="col-md-2 control-label">Year of Graduation</label>
 						<div class="col-md-10"><span data-bind="text: yearOfGraduation()"></span></div>
 					</div>
-					<g:if test="${isLoggedIn}">
+					<g:if test="${loginId==userId}">
 						<div class="col-md-12" style="text-align:center">
 				 			<button class="btn btn-sm btn-primary" data-bind="click:edit">Edit</button>
 						</div>
