@@ -58,13 +58,13 @@ class SellBooksController {
 			case 3:
 				courseSort = sortDirection
 				break;
-			case 4:
+			case 5:
 				postedDateSort = sortDirection
 				break;
-			case 5:
+			case 6:
 				statusSort = sortDirection
 				break;
-			case 6:
+			case 4:
 				priceSort = sortDirection
 				break;
 		}

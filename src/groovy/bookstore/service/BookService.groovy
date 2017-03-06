@@ -49,9 +49,9 @@ class BookService {
 			order = ' order by b.course desc'
 			
 		if(priceSort == 'asc')
-			order = ' order by b.status asc'
+			order = ' order by b.price asc'
 		if(priceSort == 'desc')
-			order = ' order by b.status desc'
+			order = ' order by b.price desc'
 		
 		if(postedDateSort == 'asc')
 			order = ' order by b.postedDate asc'
@@ -122,9 +122,9 @@ class BookService {
 			order = ' order by b.course desc'
 			
 		if(priceSort == 'asc')
-			order = ' order by b.status asc'
+			order = ' order by b.price asc'
 		if(priceSort == 'desc')
-			order = ' order by b.status desc'
+			order = ' order by b.price desc'
 		
 		if(postedDateSort == 'asc')
 			order = ' order by b.postedDate asc'
