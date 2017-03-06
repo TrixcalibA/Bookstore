@@ -41,6 +41,7 @@ class SellBooksController {
 		def courseSort = 'unsorted'
 		def postedDateSort = 'unsorted'
 		def statusSort = 'unsorted'
+		def priceSort = 'unsorted'
 	
 		def sortColNumber = Integer.parseInt(params.iSortCol_0)
 		def sortDirection = params.sSortDir_0
@@ -63,10 +64,13 @@ class SellBooksController {
 			case 5:
 				statusSort = sortDirection
 				break;
+			case 6:
+				priceSort = sortDirection
+				break;
 		}
 		def searchStr = params.sSearch
 		def bookService = BookService.getInstance()
-		def results = bookService.searchBooksByOwnerId(ownerId,params.iDisplayStart,params.iDisplayLength,searchStr,titleSort,isbnSort,majorSort,courseSort,postedDateSort,statusSort)
+		def results = bookService.searchBooksByOwnerId(ownerId,params.iDisplayStart,params.iDisplayLength,searchStr,titleSort,isbnSort,majorSort,courseSort,postedDateSort,statusSort,priceSort)
 		def bvms = []
 
 		for(book in results["data"]){
@@ -74,6 +78,7 @@ class SellBooksController {
 					   isbn:book.isbn,
 					   major:book.major,
 					   course:book.course,
+					   price:book.price,
 					   postedDate:DateUtility.getDate(book.postedDate),
 					   status:book.status])
 		}
@@ -101,6 +106,7 @@ class SellBooksController {
 			book.postedDate = new Date()
 			book.postedBy = user
 			book.status = 'available'
+			book.price = new Double(params.price).doubleValue()
 			book.save(flush: true, failOnError: true)
 			ret['success'] = true
 		}

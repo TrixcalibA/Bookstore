@@ -33,6 +33,7 @@ class OurBooksController {
 		def postedDateSort = 'unsorted'
 		def postedBySort = 'unsorted'
 		def statusSort = 'unsorted'
+		def priceSort = 'unsorted'
 	
 		def sortColNumber = Integer.parseInt(params.iSortCol_0)
 		def sortDirection = params.sSortDir_0
@@ -58,10 +59,13 @@ class OurBooksController {
 			case 6:
 				statusSort = sortDirection
 				break;
+			case 7:
+				priceSort = sortDirection
+				break;
 		}
 		def searchStr = params.sSearch
 		def bookService = BookService.getInstance()
-		def results = bookService.searchBooks(params.iDisplayStart,params.iDisplayLength,searchStr,titleSort,isbnSort,majorSort,courseSort,postedDateSort,postedBySort,statusSort)
+		def results = bookService.searchBooks(params.iDisplayStart,params.iDisplayLength,searchStr,titleSort,isbnSort,majorSort,courseSort,postedDateSort,postedBySort,statusSort,priceSort)
 		def bvms = []
 
 		for(book in results["data"]){
@@ -69,6 +73,7 @@ class OurBooksController {
 					   isbn:book.isbn,
 					   major:book.major,
 					   course:book.course,
+					   price:book.price,
 					   postedDate:DateUtility.getDate(book.postedDate),
 					   postedBy: book.firstName + ' ' +book.lastName,
 					   postedById: book.postedById,

@@ -11,12 +11,17 @@ function HomeViewModel(){
 	
 	self.course = ko.observable(null);
 	
+	self.price = ko.observable(null);
+	
 	self.sellBookTable = null;
 	
 	self.sellBook = function(){
 		$("#sell-form").validate({
 			rules:{
 				bookTitle:{
+					required: true
+				},
+				price:{
 					required: true
 				},
 				isbn:{
@@ -31,6 +36,7 @@ function HomeViewModel(){
 			title: self.title(),
 			isbn: self.isbn(),
 			major: self.major(),
+			price: self.price(),
 			course: self.course()
 		}
 		showSpinner();
@@ -40,6 +46,7 @@ function HomeViewModel(){
 				self.isbn(null);
 				self.major(null);
 				self.course(null);
+				self.price(null);
 				notyMessage('You book was posted successfully','success');
 				self.sellBookTable.fnReloadAjax();
 			}
@@ -62,6 +69,7 @@ function HomeViewModel(){
 	                       { "mData": "isbn" },
 	                       { "mData": "major" },
 	                       { "mData": "course" },
+	                       { "mData": "price" },
 	                       { "mData": "postedDate" },
 	                       { "mData": "status" }
 	                   ]

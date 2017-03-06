@@ -17,6 +17,7 @@ function HomeViewModel(){
 	                       { "mData": "isbn" },
 	                       { "mData": "major" },
 	                       { "mData": "course" },
+	                       { "mData": "price" },
 	                       { "mData": "postedDate" },
 	                       { "mData" : null,
 		                    	 "bSortable": false,

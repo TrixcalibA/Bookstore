@@ -29,6 +29,7 @@
 										<th>ISBN<span class='sorting-icon'></span></th>
 										<th>Major<span class='sorting-icon'></span></th>
 										<th>Course<span class='sorting-icon'></span></th>
+										<th>Price<span class='sorting-icon'></span></th>
 										<th>Posted<span class='sorting-icon'></span></th>
 										<th>Status<span class='sorting-icon'></span></th>
 									</tr>
@@ -71,6 +72,10 @@
 								<div class="form-group">
 									<label for="course" class="col-md-2 control-label">Course:</label>
 									<div class="col-md-10"><input type="text" class="form-control" name="course" placeholder="Course ID" data-bind="value: course"></div>
+								</div>
+								<div class="form-group">
+									<label for="price" class="col-md-2 control-label">Price:</label>
+									<div class="col-md-10"><input type="text" class="form-control" name="price" placeholder="Price" data-bind="value: price"></div>
 								</div>
 								<div class="form-actions">
 									<button class="btn btn-primary pull-right" data-bind="click: sellBook">Sell Book</button>

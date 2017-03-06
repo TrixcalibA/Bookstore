@@ -16,6 +16,8 @@ class Book {
 	
 	Date postedDate
 	
+	Double price
+	
 	static constraints = {
 		major nullable : true
 		course nullable : true

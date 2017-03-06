@@ -27,6 +27,7 @@
 								<th>ISBN<span class='sorting-icon'></span></th>
 								<th>Major<span class='sorting-icon'></span></th>
 								<th>Course<span class='sorting-icon'></span></th>
+								<th>Price<span class='sorting-icon'></span></th>
 								<th>Posted<span class='sorting-icon'></span></th>
 								<th>Posted By<span class='sorting-icon'></span></th>
 								<th>Status<span class='sorting-icon'></span></th>
