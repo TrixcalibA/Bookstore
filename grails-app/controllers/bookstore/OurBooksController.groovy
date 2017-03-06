@@ -4,6 +4,7 @@ import grails.converters.JSON
 import bookstore.service.UserService
 import bookstore.service.BookService
 import bookstore.utils.DateUtility
+import java.text.NumberFormat
 
 class OurBooksController {
 	
@@ -73,7 +74,7 @@ class OurBooksController {
 					   isbn:book.isbn,
 					   major:book.major,
 					   course:book.course,
-					   price:book.price,
+					   price:NumberFormat.getCurrencyInstance().format(book.price),
 					   postedDate:DateUtility.getDate(book.postedDate),
 					   postedBy: book.firstName + ' ' +book.lastName,
 					   postedById: book.postedById,

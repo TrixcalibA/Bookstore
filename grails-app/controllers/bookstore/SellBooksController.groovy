@@ -4,6 +4,7 @@ import grails.converters.JSON
 import groovy.swing.factory.TitledBorderFactory
 import sun.security.jca.GetInstance
 import bookstore.model.User
+import java.text.NumberFormat
 
 import org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigit
 import bookstore.utils.Logger
@@ -78,7 +79,7 @@ class SellBooksController {
 					   isbn:book.isbn,
 					   major:book.major,
 					   course:book.course,
-					   price:book.price,
+					   price:NumberFormat.getCurrencyInstance().format(book.price),
 					   postedDate:DateUtility.getDate(book.postedDate),
 					   status:book.status])
 		}
